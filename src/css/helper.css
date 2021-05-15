@@ -1,0 +1,50 @@
+/* bottom bar styling */
+.bottom_bar {
+    border:1px solid #f8f8f8;
+    background:white !important;
+    box-shadow: 0 0 20px #f8f8f8;
+    padding:0 !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
+
+.bottom_options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+
+.option_detail {
+    padding:8px 14px;
+    text-align: center;
+    color:#A9A9A7;
+}
+
+.option_heading {
+    font-size: 10px;
+    margin:0;
+}
+
+.active_tab {
+    border-top: 2px solid orange;
+    color: black;
+}
+
+/* topbar styling */
+.top_bar {
+    background: #F7993A !important;
+}
+
+.topbar_body {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding:14px;
+    color:white;
+}
+
+.logo_heading {
+    font-weight: 700;
+}
