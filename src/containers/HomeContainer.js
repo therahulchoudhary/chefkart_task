@@ -1,121 +1,73 @@
 import React from 'react';
 import '../css/HomeContainerStyle.css';
-import profileImage from '../assets/cookCard.png';
-import { ProgressBar } from 'react-bootstrap';
-import moment from 'moment';
+import ImageCard from '../components/ImageCard';
+import FeatureSection from '../components/FeatureSection';
+import CovetLogo from '../assets/covet.png';
+import MainTemplateImage from '../assets/main_background.png';
+import { Button, Image } from 'react-bootstrap';
+import { features, testimonial } from '../constant';
 
 const HomeContainer = () => {
-    const [weekDays, setweekDays] = React.useState([]);
-    const [Blanks, setBlanks] = React.useState([]);
-    const [daysInMonth, setDaysInMonth] = React.useState([]);
-    const [markedAsLeave, setMarker] = React.useState(true);
-
-    React.useEffect(() => {
-        let weekDaysShort = moment.weekdaysShort();
-        setweekDays(weekDaysShort);
-    }, []);
-
-    const weekdayshortname = weekDays.map((day) => {
-        return (
-            <th key={day} className="week-day">
-                {day.slice(0, 1)}
-            </th>
-        );
-    });
-
-    const firstDayOfMonth = () => {
-        var dateObject = moment();
-        var firstDay = moment(dateObject).startOf("month").format('d');
-        return firstDay;
-    }
-
-    React.useEffect(() => {
-        let blanks = [];
-        for (let i = 0; i < firstDayOfMonth(); i++) {
-            blanks.push(
-                <td key={`day ${i}`} className="calendar-day empty">{""}</td>
-            );
-        }
-        let totalDaysInMonth = [];
-        for (let d = 1; d <= moment().daysInMonth(); d++) {
-            let currentDay = d == moment().format("D") ? "current_day" : "";
-            totalDaysInMonth.push(
-                <td key={d} className={`${currentDay}`}>
-                    {d}{d == moment().format("D") ? <i className="fa fa-moon-o fa-lg moon_icon" style={{ color: '#F7993A' }} aria-hidden="true"></i> : <></>}
-                </td>
-            );
-        }
-        setDaysInMonth(totalDaysInMonth);
-        setBlanks(blanks);
-    }, [])
-
-    var totalSlots = [...Blanks, ...daysInMonth];
-    let rows = [];
-    let cells = [];
-
-    totalSlots.forEach((row, i) => {
-        if (i % 7 !== 0) {
-            cells.push(row);
-        } else {
-            rows.push(cells);
-            cells = [];
-            cells.push(row);
-        }
-        if (i === totalSlots.length - 1) {
-            // let insertRow = cells.slice();
-            rows.push(cells);
-        }
-    });
-
-    const daysinmonth = rows.map((d, i) => {
-        return <tr key={i}>{d}</tr>;
-    });
-
     return (
         <>
-            <div className="container-fluid">
-                <div className="row toggle_tabs">
-                    <div className="col-6 text-center active_toggle_tab">
-                        <p className="tab_heading">ATTENDANCE</p>
+            <div className="container">
+                <section id="home" className="my-5 pt-5">
+                    <div className="row">
+                        <div className="col-md-12 text-center">
+                            <Button variant="outline-light" className="py-2 px-3"><Image src={CovetLogo} /></Button>
+                            <h1 className="font-weight-bold mt-4 mb-3">Web app for Covet</h1>
+                            <p className="w-50 mb-5 mx-auto h6 font-weight-normal">Create custom landing pages with Omega that converts more visitors than any website. </p>
+                        </div>
+                        <div className="col-md-12 mt-5">
+                            <Image src={MainTemplateImage} width="100%" />
+                        </div>
                     </div>
-                    <div className="col-6 text-center">
-                        <p className="tab_heading">SUBSCRIPTION</p>
+                </section>
+                <section id="features" className="pb-5">
+                    <div className="row">
+                        <div className="col-md-10 mx-auto">
+                            {features.slice(0, 2).map((element, index) => (<FeatureSection key={"firstfeature#" + index} title={element.title} description={element.description} />))}
+                        </div>
                     </div>
-                </div>
-                <div className="home_body my-4 mx-2">
-                    <div className="profile_card">
-                        <img src={profileImage} alt="cook_profile" width="40%" style={{ marginTop: -15, marginLeft: 10, marginRight: 10 }} />
-                        <div className="profile_detail pr-3">
-                            <h2 className="profile_name">Nazma Biwi</h2>
-                            <p className="profile_subtitle m-0">Chef since 2012</p>
-                            <div className="leaves_div pt-2">
-                                <div style={{ fontSize: 10, display: 'flex', justifyContent: 'space-between', color: 'grey' }}>
-                                    <p className="m-0">Total Leaves</p>
-                                    <p className="m-0" style={{ color: '#F7993A', fontWeight: 'bold' }}>02</p>
+                    <div className="row my-4 pb-5">
+                        <div className="col-md-6">
+                            <Image src={MainTemplateImage} width="100%" />
+                        </div>
+                        <div className="col-md-6">
+                            <Image src={MainTemplateImage} width="100%" />
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-10 mx-auto">
+                            {features.slice(2, 4).map((element, index) => (
+                                <div key={"feature#" + index}>
+                                    <FeatureSection title={element.title} description={element.description} />
+                                    {index === 0 && <div>
+                                        <ul>
+                                            <li className="py-1" style={{ fontSize: 14, color: 'grey' }}>This role will work with stakeholders and other developers to design and implement.</li>
+                                            <li className="py-1" style={{ fontSize: 14, color: 'grey' }}>Create custom landing pages with Omega that converts more visitors than any website. With lots of unique blocks, you can easily build a page without any design or custom coding.</li>
+                                            <li className="py-1" style={{ fontSize: 14, color: 'grey' }}>You might be surprised to know that not only do we run some of the biggest websites in the world; we’re also growing really fast! We have close to 600 staff and contractors worldwide, adding more than 100 people to the business, which grows year on year, since 2017.</li>
+                                        </ul>
+                                    </div>}
                                 </div>
-                                <ProgressBar variant="warning" now={20} style={{ height: 5, marginTop: 3 }} />
+                            ))}
+                            <Button variant="danger">Check live website</Button>
+                        </div>
+                    </div>
+                </section>
+                <hr className="mt-5"></hr>
+                <section id="testimonial">
+                    <div className="row mb-5">
+                        <div className="col-md-12 text-center my-5">
+                            <h1 className="font-weight-bold">More Case studies</h1>
+                        </div>
+                        {testimonial.map((element, index) => (
+                            <div key={"testimonial#" + index} className="col-md-4">
+                                <ImageCard />
                             </div>
-                        </div>
+                        ))}
                     </div>
-                    <div className="calendar_block">
-                        <h3 className="calendar_heading">Mark Attendance</h3>
-                        <div className="selected_date_div">
-                            <span>{moment().format('DD MMM YYYY')} <i className="fa fa-angle-down" aria-hidden="true"></i></span>
-                            <button className="primary_button" onClick={() => markedAsLeave ? setMarker(false) : setMarker(true)}>Mark Leave</button>
-                        </div>
-                        <table className="custom_calendar">
-                            <thead>
-                                <tr>{weekdayshortname}</tr>
-                            </thead>
-                            <tbody>
-                                {daysinmonth}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div className="plus_button">
-                    <i className="fa fa-plus fa-lg" aria-hidden="true"></i>
-                </div>
+                </section>
             </div>
         </>
     );

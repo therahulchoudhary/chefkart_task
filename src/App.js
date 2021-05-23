@@ -4,16 +4,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import HomeContainer from './containers/HomeContainer'
 import Topbar from './components/Topbar';
-import Bottombar from './components/Bottombar';
+import CustomFooter from './components/CustomFooter';
+import FormContainer from './containers/FormContainer';
 
 const App = () => {
   return (
     <Router>
       <Topbar />
       <Switch>
-        <Route path="/" component={HomeContainer} />
+        <Route path="/" exact component={HomeContainer} />
+        <Route path="/form" component={FormContainer} />
       </Switch>
-      <Bottombar />
+      <CustomFooter />
     </Router>
   );
 }
