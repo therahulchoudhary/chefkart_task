@@ -54,9 +54,13 @@ export const listItem = [
 export const formValue = {
     name: '',
     description: '',
-    targetLocation: '',
+    location: '',
     categories: '',
-    followers: 0,
-    workedWithBrand: false,
-
+    followers: '',
+    average_response: '',
+    minbudget: '',
+    maxbudget: '',
+    rate: '',
+    brand_collab: '',
+    working: 'Yes'
 }

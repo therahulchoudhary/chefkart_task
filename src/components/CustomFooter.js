@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/helper.css';
-import { Button } from 'react-bootstrap';
 import FooterList from './FooterList';
 import { listItem } from '../constant';
 
@@ -12,7 +11,7 @@ const CustomFooter = () => {
                     <div className="col-md-12 text-center my-5">
                         <h1 className="font-weight-bold my-3">Ready to launch?</h1>
                         <p className="m-auto" style={{ width: '30%', color: 'grey', fontSize: 12, lineHeight: 1.8 }}>Are you interested to join our team? Check out our job openings and apply on your suitable role.</p>
-                        <Button variant="danger" className="mt-4">Get Omega Now</Button>
+                        <button variant="danger" className="primary_button py-2 px-4 mt-4">Get Omega Now</button>
                     </div>
                 </div>
                 <div className="row my-5 py-5">

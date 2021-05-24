@@ -51,7 +51,7 @@ const HomeContainer = () => {
                                     </div>}
                                 </div>
                             ))}
-                            <Button variant="danger">Check live website</Button>
+                            <button className="primary_button py-2 px-3" variant="danger">Check live website</button>
                         </div>
                     </div>
                 </section>

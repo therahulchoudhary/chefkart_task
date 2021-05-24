@@ -11,10 +11,10 @@ const Topbar = () => {
                 <Nav className="mr-auto">
                 </Nav>
                 <Nav inline="true" className="align-items-center">
-                    <Nav.Link className="font-weight-bold px-4" active>Demos</Nav.Link>
-                    <Link to={'/form'}>Form</Link>
-                    <Nav.Link className="font-weight-bold px-4">Support</Nav.Link>
-                    <Nav.Link><Button className="btn btn-danger">Get Started</Button></Nav.Link>
+                    <Link className="font-weight-bold px-4" to={'/'}>Home</Link>
+                    <Link className="font-weight-bold px-4" to={'/form'}>Form</Link>
+                    <Link className="font-weight-bold px-4" to={'/list'}>List</Link>
+                    <Nav.Link><Button className="primary_button py-2 px-4">Get Started</Button></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

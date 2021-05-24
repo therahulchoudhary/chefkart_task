@@ -6,6 +6,7 @@ import HomeContainer from './containers/HomeContainer'
 import Topbar from './components/Topbar';
 import CustomFooter from './components/CustomFooter';
 import FormContainer from './containers/FormContainer';
+import ListContainer from './containers/ListContainer';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Switch>
         <Route path="/" exact component={HomeContainer} />
         <Route path="/form" component={FormContainer} />
+        <Route path="/list" component={ListContainer} />
       </Switch>
       <CustomFooter />
     </Router>
